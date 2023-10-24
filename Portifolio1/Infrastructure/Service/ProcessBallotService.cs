@@ -24,35 +24,18 @@ public class ProcessBallotService : IProcessBallot
         }
     }
 
-    public void ShowWinner(List<CandidatesViewModel> winner)
+    public void ShowWinner(CandidatesViewModel winner)
     {
-        if (winner == null || winner.Count == 0)
-        {
-            throw new ArgumentException("lista vazia ou nula");
-        }
-        if (winner.Count == 1)
-        {
-            Console.WriteLine(
-                $"O candidato {winner[0].Name} venceu a eleição com {winner[0].VoteQuantity} votos."
+        Console.WriteLine(
+                $"O candidato {winner.Name} venceu a eleição com {winner.VoteQuantity} votos."
             );
-        }
-        else
-        {
-            Console.WriteLine("Candidatos empatados em primeiro lugar:");
-            foreach (var candidate in winner)
-            {
-                Console.WriteLine(
-                    $"O candidato {candidate.Name} empatou a eleição com {candidate.VoteQuantity} votos."
-                );
-            }
-        }
     }
 
-    public List<CandidatesViewModel> GetWinner(List<CandidatesViewModel> candidatesResult)
+    public CandidatesViewModel GetWinner(List<CandidatesViewModel> candidatesResult)
     {
         int highCount = candidatesResult.Max(e => e.VoteQuantity);
 
-        return candidatesResult.Where(e => e.VoteQuantity == highCount).ToList();
+        return candidatesResult.First(e => e.VoteQuantity == highCount);
     }
 
     public List<CandidatesViewModel> ProcessToPrint(List<Candidate> canditates)
