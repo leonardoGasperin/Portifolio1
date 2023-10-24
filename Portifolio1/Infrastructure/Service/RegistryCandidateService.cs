@@ -1,6 +1,5 @@
 ﻿using Domain.Entities;
 using Infrastructure.Interface;
-using Infrastructure.Rules;
 
 namespace Infrastructure.Service;
 
