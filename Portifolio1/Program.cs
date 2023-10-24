@@ -3,7 +3,8 @@ using Infrastructure.Service;
 
 ElectionSystem electionSystem = new(
     new ProcessBallotService(),
-    new RegistryCandidateService()
+    new RegistryCandidateService(),
+    new()
 );
 
 electionSystem.Start();

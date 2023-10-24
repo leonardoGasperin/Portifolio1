@@ -4,5 +4,5 @@ namespace Infrastructure.Interface;
 
 public interface IRegistryCandidate
 {
-    public List<Candidate> RegisterCandidateBallot();
+    public Candidate CreateCandidate(string candidateName, string vote);
 }
