@@ -1,0 +1,39 @@
+﻿Algoritmo EleicaoCondominio
+    NumeroCandidatos: Inteiro
+    NomesCandidatos: Vetor de Caractere
+    VotosCandidatos: Vetor de Inteiro
+    Vencedor: Caractere
+    MaiorVotos: Inteiro
+    
+    Escreva("Informe o número de candidatos: ")
+    Leia(NumeroCandidatos)
+    
+    Para i de 1 Até NumeroCandidatos Faça
+        Escreva("Nome do ", i, " candidato: ")
+        Leia(NomesCandidatos[i])
+        Escreva("Número de votos do ", i, " candidato: ")
+        Leia(VotosCandidatos[i])
+    FimPara
+    
+    Vencedor <- NomesCandidatos[1]
+    MaiorVotos <- VotosCandidatos[1]
+    
+    Para i de 2 Até NumeroCandidatos Faça
+        Se VotosCandidatos[i] > MaiorVotos Então
+            MaiorVotos <- VotosCandidatos[i]
+            Vencedor <- NomesCandidatos[i]
+        FimSe
+    FimPara
+    
+    Para i de 1 Até NumeroCandidatos Faça
+        Se (VotosCandidatos[i] = MaiorVotos) E (NomesCandidatos[i] <> Vencedor) Então
+            Escreva("Houve um empate nas votações.")
+            Pare
+        FimSe
+    FimPara
+    
+    Se Nao (VotosCandidatos[1] = MaiorVotos) Então
+        Escreva("O candidato ", Vencedor, " venceu a eleição com ", MaiorVotos, " votos.")
+    FimSe
+    
+FimAlgoritmo
