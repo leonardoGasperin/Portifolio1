@@ -3,7 +3,7 @@ using Infrastructure.Service;
 
 namespace ServiceTest;
 
-internal class RegistryCandidateServiceTest
+public class RegistryCandidateServiceTest
 {
     private RegistryCandidateService _registryCandidateService;
 

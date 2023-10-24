@@ -4,7 +4,7 @@ using UnitTests.Factory;
 
 namespace RulesTest;
 
-internal class InputValidationTest
+public class InputValidationTest
 {
     [TestCase("")]
     [TestCase(null)]
