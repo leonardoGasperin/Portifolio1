@@ -10,7 +10,11 @@ public class ElectionSystem
     private readonly IRegistryCandidate _registryCandidate;
     private List<Candidate> _candidates;
 
-    public ElectionSystem(IProcessBallot processBallot, IRegistryCandidate registryCandidate, List<Candidate> candidates)
+    public ElectionSystem(
+        IProcessBallot processBallot,
+        IRegistryCandidate registryCandidate,
+        List<Candidate> candidates
+    )
     {
         _processBallot = processBallot;
         _registryCandidate = registryCandidate;
@@ -56,7 +60,10 @@ public class ElectionSystem
             {
                 break;
             }
-            if (_candidates.Count > 0 && InputValidation.ValidateCandidateNameRepetition(_candidates, candidateName))
+            if (
+                _candidates.Count > 0
+                && InputValidation.ValidateCandidateNameRepetition(_candidates, candidateName)
+            )
             {
                 Console.WriteLine(
                     $"O candidato {candidateName} já foi registrado, por favor tente outro candidato."
@@ -83,7 +90,12 @@ public class ElectionSystem
                 );
                 continue;
             }
-            if (InputValidation.ValidateVotesCountRepetition(_candidates, int.Parse(candidateVotesQt)))
+            if (
+                InputValidation.ValidateVotesCountRepetition(
+                    _candidates,
+                    int.Parse(candidateVotesQt)
+                )
+            )
             {
                 Console.WriteLine(
                     $"Regra de impossibilidade de empates impede que o valor pois poderia impatar com {_candidates.First(e => e.VoteQuantity == int.Parse(candidateVotesQt)).Name} ja tem esta qauntia de votos. Por favor tente novamente."

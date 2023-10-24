@@ -26,7 +26,10 @@ public class RegistryCandidateServiceTest
             VoteQuantity = expectedVotesQt,
         };
 
-        var candidateResult = _registryCandidateService.CreateCandidate(expectedName, expectedVotesQt.ToString());
+        var candidateResult = _registryCandidateService.CreateCandidate(
+            expectedName,
+            expectedVotesQt.ToString()
+        );
 
         Assert.Multiple(() =>
         {
